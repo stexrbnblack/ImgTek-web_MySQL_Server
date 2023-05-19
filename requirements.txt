@@ -13,7 +13,7 @@ distlib==0.3.6
 dkimpy==1.1.2
 dnspython==2.3.0
 filelock==3.11.0
-Flask==2.3.2
+Flask==2.2.5
 Flask-MySQL==1.5.2
 Flask-Session==0.4.0
 Flask-WTF==1.1.1
