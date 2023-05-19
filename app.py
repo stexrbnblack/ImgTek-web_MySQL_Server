@@ -7,16 +7,57 @@ from datetime import datetime                   # --> Incorpora la fecha actual
 from flask import send_from_directory           # --> Permite acceder a directorios de las carpetas
 import functools
 import os                                       # --> os: acceso a sistema operativo y manejar acceso a las carpetas de uploads para eliminar la imagen
+import mysql.connector
+
+
+# ------------------------------------------------------
+# import mysql.connector
+
+# # Conexión a MySQL usando Connector/Python
+
+# cnx = mysql.connector.connect(user='scott', password='password',
+#                               host='127.0.0.1',
+#                               database='employees',
+#                               use_pure=False)
+# cnx.close()
+# ------------------------------------------------------
+
+# import mysql.connector
+
+# # Conexión a MySQL usando Connector/Python
+
+# config = {
+#   'user': 'scott',
+#   'password': 'password',
+#   'host': '127.0.0.1',
+#   'database': 'employees',
+#   'raise_on_warnings': True
+# }
+
+# cnx = mysql.connector.connect(**config)
+
+# cnx.close()
+# --------------------------------------------------------
 
 
 app=Flask(__name__)
 app.secret_key = os.urandom(24)
 
 
+# DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.mysql',
+#             'NAME': 'database_name',
+#             'USER': 'username',
+#             'PASSWORD': 'databasepassword@123',
+#             'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+#             'PORT': '3306',
+#             }
+# }
 
 mysql = MySQL()
 # --> nombre de la variable debe estar en mayuscula: ['MYSQL_DATABASE_HOST']
-app.config['MYSQL_DATABASE_HOST']= '127.0.0.1' #'localhost'          # --> Conectarse a la base de datos de 'XAMPP + MariaDB' por una ip usando el localhost
+app.config['MYSQL_DATABASE_HOST']= 'localhost' #'localhost'          # --> Conectarse a la base de datos de 'XAMPP + MariaDB' por una ip usando el localhost
 app.config['MYSQL_DATABASE_USER']= 'root' #'root'               # --> Nombre del usuario para ingresar
 app.config['MYSQL_DATABASE_PASSWORD']= '1234' #''               # --> Password si lo requiere
 app.config['MYSQL_DATABASE_DB']= 'mysql-imgtek-web' #'mysql-imgtek-web'     # ---> nombre de la base de datos
@@ -118,7 +159,7 @@ def login():
         return render_template ('login.html', error=error)
     except Exception as e:
         print(e)
-        #flash(e)
+        # flash(e)
         return render_template ('login.html')#, e=e)
 
 
