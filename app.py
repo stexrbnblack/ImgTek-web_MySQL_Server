@@ -57,7 +57,7 @@ app.secret_key = os.urandom(24)
 
 mysql = MySQL()
 # --> nombre de la variable debe estar en mayuscula: ['MYSQL_DATABASE_HOST']
-app.config['MYSQL_DATABASE_HOST']= 'localhost' #'cliente-ImgTek-web'          # --> Conectarse a la base de datos de 'XAMPP + MariaDB' por una ip usando el localhost
+app.config['MYSQL_DATABASE_HOST']= '127.0.0.1'#'localhost' #'cliente-ImgTek-web'          # --> Conectarse a la base de datos de 'XAMPP + MariaDB' por una ip usando el localhost
 app.config['MYSQL_DATABASE_USER']= 'cliente-ImgTek-web' #'root'               # --> Nombre del usuario para ingresar
 app.config['MYSQL_DATABASE_PASSWORD']= 'cliente-ImgTek-web01' #'1234'               # --> Password si lo requiere
 app.config['MYSQL_DATABASE_DB']= 'mysql-imgtek-web' #'mysql-imgtek-w eb'     # ---> nombre de la base de datos
